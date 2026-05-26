@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 50" width="100%" height="100%">
+  <!-- Camera Frame Brackets -->
+  <path d="M 8 10 H 16 M 8 10 V 18" stroke="#E52427" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <path d="M 8 40 H 16 M 8 40 V 32" stroke="#E52427" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <path d="M 192 10 H 184 M 192 10 V 18" stroke="#E52427" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <path d="M 192 40 H 184 M 192 40 V 32" stroke="#E52427" stroke-width="2" fill="none" stroke-linecap="round"/>
+
+  <!-- Text group -->
+  <g transform="translate(20, 34)">
+    <!-- "WillSh" -->
+    <text x="0" y="0" font-family="system-ui, -apple-system, sans-serif" font-weight="800" font-size="24" fill="#FFFFFF" letter-spacing="-1">WillSh</text>
+    
+    <!-- First 'o' with Play Icon -->
+    <g transform="translate(74, -8)">
+      <circle cx="8" cy="0" r="8" stroke="#E52427" stroke-width="3" fill="none" />
+      <polygon points="6.5,-3.5 6.5,3.5 11.5,0" fill="#E52427" />
+    </g>
+    
+    <!-- Second 'o' -->
+    <g transform="translate(95, -8)">
+      <circle cx="8" cy="0" r="8" stroke="#FFFFFF" stroke-width="3" fill="none" />
+    </g>
+    
+    <!-- 't' -->
+    <text x="116" y="0" font-family="system-ui, -apple-system, sans-serif" font-weight="800" font-size="24" fill="#FFFFFF" letter-spacing="-1">t</text>
+  </g>
+</svg>
