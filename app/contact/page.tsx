@@ -71,8 +71,8 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <p className="text-xs uppercase tracking-wider text-brand-medium-gray font-bold">Email Us</p>
-                    <a href="mailto:shoot@willshoot.com" className="text-sm font-semibold tracking-wide text-brand-black hover:text-brand-red transition-colors duration-200 mt-0.5 block">
-                      shoot@willshoot.com
+                    <a href="mailto:contact@willshoot.au" className="text-sm font-semibold tracking-wide text-brand-black hover:text-brand-red transition-colors duration-200 mt-0.5 block">
+                      contact@willshoot.au
                     </a>
                   </div>
                 </div>
@@ -84,8 +84,8 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <p className="text-xs uppercase tracking-wider text-brand-medium-gray font-bold">Call Us</p>
-                    <a href="tel:+61400000000" className="text-sm font-semibold tracking-wide text-brand-black hover:text-brand-red transition-colors duration-200 mt-0.5 block">
-                      +61 400 000 000
+                    <a href="tel:+61478635406" className="text-sm font-semibold tracking-wide text-brand-black hover:text-brand-red transition-colors duration-200 mt-0.5 block">
+                      +61 478 635 406
                     </a>
                   </div>
                 </div>
@@ -110,7 +110,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <p className="text-xs uppercase tracking-wider text-brand-medium-gray font-bold">Immediate Chat</p>
-                    <a href="https://wa.me/61400000000?text=Hi%20WillShoot!%20I'd%20like%20to%20book%20a%20shoot%20for%20my%20business." target="_blank" rel="noopener noreferrer" className="text-sm font-semibold tracking-wide text-brand-black hover:text-brand-red transition-colors duration-200 mt-0.5 block">
+                    <a href="https://wa.me/61478635406?text=Hi%20WillShoot!%20I'd%20like%20to%20book%20a%20shoot%20for%20my%20business." target="_blank" rel="noopener noreferrer" className="text-sm font-semibold tracking-wide text-brand-black hover:text-brand-red transition-colors duration-200 mt-0.5 block">
                       Message on WhatsApp
                     </a>
                   </div>

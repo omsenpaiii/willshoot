@@ -37,7 +37,7 @@ export default function Footer() {
               <Instagram size={18} />
             </a>
             <a 
-              href="mailto:shoot@willshoot.com" 
+              href="mailto:contact@willshoot.au" 
               className="w-9 h-9 rounded-full bg-brand-white/5 hover:bg-brand-red transition-colors duration-300 flex items-center justify-center text-brand-white/80 hover:text-brand-white"
               aria-label="Email"
             >
@@ -88,14 +88,14 @@ export default function Footer() {
             </li>
             <li className="flex items-center space-x-3 text-brand-medium-gray text-sm">
               <Mail size={18} className="text-brand-red shrink-0" />
-              <a href="mailto:shoot@willshoot.com" className="hover:text-brand-white transition-colors duration-200">
-                shoot@willshoot.com
+              <a href="mailto:contact@willshoot.au" className="hover:text-brand-white transition-colors duration-200">
+                contact@willshoot.au
               </a>
             </li>
             <li className="flex items-center space-x-3 text-brand-medium-gray text-sm">
               <Phone size={18} className="text-brand-red shrink-0" />
-              <a href="tel:+61400000000" className="hover:text-brand-white transition-colors duration-200">
-                +61 400 000 000
+              <a href="tel:+61478635406" className="hover:text-brand-white transition-colors duration-200">
+                +61 478 635 406
               </a>
             </li>
           </ul>

@@ -69,7 +69,7 @@ export default function ContactForm() {
 
   // WhatsApp click to chat generation helper
   const getWhatsAppLink = () => {
-    const phoneNum = "61400000000"; // Sample AU phone number (Melbourne)
+    const phoneNum = "61478635406"; // WillShoot phone number (Melbourne)
     const baseText = `Hi WillShoot! My name is ${formData.name || "[Your Name]"}`;
     const bizText = formData.businessName ? ` from ${formData.businessName}` : "";
     const svcText = formData.service ? `. I'm interested in booking your ${formData.service} package` : ". I'd like to book a shoot";
@@ -175,7 +175,7 @@ export default function ContactForm() {
             name="phone"
             value={formData.phone}
             onChange={handleChange}
-            placeholder="e.g. 0400 000 000"
+            placeholder="e.g. 0478 635 406"
             disabled={status === "submitting"}
             className="w-full px-4 py-3 rounded-xl border border-brand-light-gray bg-brand-soft-white text-sm text-brand-black focus:outline-none focus:border-brand-red focus:bg-brand-white transition-colors duration-200"
           />
