@@ -104,10 +104,16 @@ export default function Navbar() {
           {/* Mobile Hamburger Button */}
           <button 
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden text-brand-white focus:outline-none p-2 relative z-50"
+            className="md:hidden text-brand-white focus:outline-none w-12 h-12 flex items-center justify-center relative z-50 cursor-pointer"
             aria-label="Toggle navigation menu"
           >
-            {isOpen ? <X size={24} /> : <Menu size={24} />}
+            <motion.div
+              animate={{ rotate: isOpen ? 90 : 0 }}
+              transition={{ duration: 0.2 }}
+              className="flex items-center justify-center"
+            >
+              {isOpen ? <X size={24} /> : <Menu size={24} />}
+            </motion.div>
           </button>
         </div>
       </header>
@@ -126,7 +132,7 @@ export default function Navbar() {
             <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-brand-red/10 rounded-full blur-[100px] pointer-events-none" />
             <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-brand-white/5 rounded-full blur-[100px] pointer-events-none" />
 
-            <nav className="flex flex-col items-center space-y-8 relative z-10">
+            <nav className="flex flex-col items-center space-y-4 relative z-10 w-full max-w-xs">
               {NAV_LINKS.map((link, idx) => {
                 const isActive = pathname === link.href;
                 return (
@@ -139,18 +145,19 @@ export default function Navbar() {
                       duration: 0.5,
                       ease: [0.22, 1, 0.36, 1]
                     }}
+                    className="w-full text-center"
                   >
                     <Link 
                       href={link.href}
-                      className={`text-2xl font-bold tracking-wider relative ${
-                        isActive ? "text-brand-red" : "text-brand-white"
+                      className={`text-2xl font-bold tracking-wider relative py-3.5 px-8 block text-center transition-colors duration-200 ${
+                        isActive ? "text-brand-red" : "text-brand-white hover:text-brand-red/80"
                       }`}
                     >
                       {link.label}
                       {isActive && (
                         <motion.span 
                           layoutId="mobileActiveLine"
-                          className="absolute -bottom-1 left-0 w-full h-[2px] bg-brand-red"
+                          className="absolute bottom-1.5 left-1/4 right-1/4 h-[2px] bg-brand-red"
                         />
                       )}
                     </Link>

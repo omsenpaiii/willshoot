@@ -37,7 +37,7 @@ export default function ServiceCard({ id, title, shortDescription, icon, index }
       whileInView="visible"
       viewport={{ once: true, margin: "-50px" }}
       whileHover={{ y: -8 }}
-      className="group relative bg-brand-soft-white border border-brand-light-gray p-8 rounded-2xl transition-all duration-300 hover:border-brand-red/40 hover:shadow-xl hover:shadow-brand-red/5 flex flex-col justify-between h-full overflow-hidden"
+      className="group relative bg-brand-soft-white border border-brand-light-gray p-8 rounded-2xl transition-[border-color,box-shadow,background-color] duration-300 hover:border-brand-red/40 hover:shadow-xl hover:shadow-brand-red/5 flex flex-col justify-between h-full overflow-hidden"
     >
       {/* Accent Red Top Border/Line on hover */}
       <span className="absolute top-0 left-0 w-0 h-1 bg-brand-red transition-all duration-300 group-hover:w-full" />

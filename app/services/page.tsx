@@ -102,7 +102,7 @@ export default function ServicesPage() {
               <div className={`grid grid-cols-1 lg:grid-cols-12 gap-12 items-center ${isEven ? "" : "lg:flex-row-reverse"}`}>
                 
                 {/* Visual Block / Card */}
-                <div className={`lg:col-span-5 ${isEven ? "lg:order-1" : "lg:order-2"} bg-brand-soft-white border border-brand-light-gray rounded-3xl p-8 md:p-12 relative overflow-hidden flex flex-col justify-between aspect-square lg:aspect-auto min-h-[380px]`}>
+                <div className={`lg:col-span-5 ${isEven ? "lg:order-1" : "lg:order-2"} bg-brand-soft-white border border-brand-light-gray rounded-3xl p-8 md:p-12 relative overflow-hidden flex flex-col justify-between aspect-video lg:aspect-auto min-h-[280px] lg:min-h-[380px]`}>
                   {/* Glowing light */}
                   <div className="absolute -top-10 -right-10 w-40 h-40 bg-brand-red/5 rounded-full blur-3xl pointer-events-none" />
                   

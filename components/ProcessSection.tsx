@@ -60,7 +60,7 @@ export default function ProcessSection() {
                 className="relative pl-8 md:pl-16 group"
               >
                 {/* Timeline Node Bubble */}
-                <div className="absolute -left-[17px] top-1 w-8 h-8 rounded-full border-2 border-brand-light-gray bg-brand-white text-brand-black flex items-center justify-center font-bold text-xs transition-all duration-300 group-hover:border-brand-red group-hover:bg-brand-red group-hover:text-brand-white">
+                <div className="absolute -left-[15px] top-1 w-8 h-8 rounded-full border-2 border-brand-light-gray bg-brand-white text-brand-black flex items-center justify-center font-bold text-xs transition-all duration-300 group-hover:border-brand-red group-hover:bg-brand-red group-hover:text-brand-white">
                   {step.number}
                 </div>
 
