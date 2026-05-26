@@ -20,7 +20,7 @@ export default function Footer() {
               src="/logo.png" 
               alt="WillShoot Logo" 
               fill
-              className="object-contain"
+              className="object-contain [filter:invert(1)_hue-rotate(180deg)]"
             />
           </Link>
           <p className="text-brand-medium-gray text-sm max-w-sm leading-relaxed">

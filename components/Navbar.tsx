@@ -63,7 +63,7 @@ export default function Navbar() {
               src="/logo.png" 
               alt="WillShoot Logo" 
               fill
-              className="object-contain"
+              className="object-contain [filter:invert(1)_hue-rotate(180deg)]"
               priority
             />
           </Link>
