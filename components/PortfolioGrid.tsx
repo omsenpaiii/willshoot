@@ -61,7 +61,8 @@ export default function PortfolioGrid({ limit, showFilters = true }: PortfolioGr
               transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
               key={project.id}
               onClick={() => setActiveProject(project)}
-              className="group relative rounded-2xl overflow-hidden border border-brand-light-gray/60 bg-brand-white flex flex-col justify-between h-full hover:shadow-xl hover:shadow-brand-black/5 cursor-pointer"
+              whileHover={{ y: -8 }}
+              className="group premium-panel relative rounded-[28px] overflow-hidden flex flex-col justify-between h-full hover:shadow-2xl hover:shadow-brand-black/10 cursor-pointer"
             >
               {/* Thumbnail Container */}
               <div className="relative aspect-video w-full overflow-hidden bg-brand-black">
@@ -87,7 +88,7 @@ export default function PortfolioGrid({ limit, showFilters = true }: PortfolioGr
                 </div>
 
                 {/* Category Badge */}
-                <span className="absolute top-4 left-4 text-xs font-bold uppercase tracking-widest bg-brand-black/80 text-brand-white px-3 py-1.5 rounded-full border border-brand-white/10">
+                <span className="absolute top-4 left-4 text-xs font-bold uppercase tracking-widest bg-brand-black/80 text-brand-white px-3 py-1.5 rounded-full border border-brand-white/10 premium-dark-panel">
                   {project.categoryLabel}
                 </span>
               </div>

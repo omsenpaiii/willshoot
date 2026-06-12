@@ -34,9 +34,10 @@ const STEPS: Step[] = [
 
 export default function ProcessSection() {
   return (
-    <section className="py-24 bg-brand-soft-white relative overflow-hidden">
+    <section className="py-24 bg-brand-soft-white relative overflow-hidden section-wash">
       {/* Background visual element */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-brand-red/5 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute left-10 bottom-12 w-56 h-56 bg-brand-black/[0.04] rounded-full blur-[100px] pointer-events-none" />
 
       <div className="max-w-5xl mx-auto px-6 md:px-12">
         <div className="text-center max-w-2xl mx-auto mb-16 space-y-4">
@@ -48,7 +49,7 @@ export default function ProcessSection() {
         </div>
 
         {/* Timeline Container */}
-        <div className="relative border-l-2 border-brand-light-gray/80 ml-4 md:ml-32 space-y-12">
+        <div className="relative ml-3 md:ml-32 space-y-10 md:space-y-12 before:absolute before:left-0 before:top-0 before:bottom-0 before:w-[2px] before:bg-gradient-to-b before:from-brand-red/20 before:via-brand-light-gray before:to-brand-black/15">
           {STEPS.map((step, idx) => {
             return (
               <motion.div
@@ -57,15 +58,16 @@ export default function ProcessSection() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: idx * 0.1 }}
+                whileHover={{ x: 4 }}
                 className="relative pl-8 md:pl-16 group"
               >
                 {/* Timeline Node Bubble */}
-                <div className="absolute -left-[15px] top-1 w-8 h-8 rounded-full border-2 border-brand-light-gray bg-brand-white text-brand-black flex items-center justify-center font-bold text-xs transition-all duration-300 group-hover:border-brand-red group-hover:bg-brand-red group-hover:text-brand-white">
+                <div className="absolute -left-[15px] top-1 w-8 h-8 rounded-full border-2 border-brand-light-gray bg-brand-white text-brand-black flex items-center justify-center font-bold text-xs transition-all duration-300 group-hover:border-brand-red group-hover:bg-brand-red group-hover:text-brand-white shadow-lg shadow-brand-black/5">
                   {step.number}
                 </div>
 
                 {/* Step Content Card */}
-                <div className="bg-brand-white border border-brand-light-gray/60 p-6 md:p-8 rounded-2xl transition-all duration-300 hover:border-brand-red/20 hover:shadow-lg hover:shadow-brand-red/[0.02]">
+                <div className="premium-panel p-6 md:p-8 rounded-[28px] transition-all duration-300 hover:border-brand-red/20 hover:shadow-2xl hover:shadow-brand-black/8">
                   <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                     <div className="space-y-2">
                       <h4 className="text-xl font-bold tracking-tight text-brand-black group-hover:text-brand-red transition-colors duration-200">

@@ -44,7 +44,7 @@ export default function Home() {
       <Hero />
 
       {/* 2. Services Preview Section */}
-      <section className="py-24 bg-brand-white relative" id="services-preview">
+      <section className="py-24 bg-brand-white relative section-wash" id="services-preview">
         <div className="max-w-7xl mx-auto px-6 md:px-12 space-y-16">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
             <div className="space-y-4 max-w-2xl">
@@ -78,7 +78,7 @@ export default function Home() {
       </section>
 
       {/* 3. Why WillShoot Section */}
-      <section className="py-24 bg-brand-soft-white border-y border-brand-light-gray/60 relative overflow-hidden">
+      <section className="py-24 bg-brand-soft-white border-y border-brand-light-gray/60 relative overflow-hidden section-wash">
         <div className="absolute top-1/2 left-0 w-72 h-72 bg-brand-red/[0.03] rounded-full blur-[100px] pointer-events-none" />
         <div className="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-5 space-y-6">
@@ -99,7 +99,7 @@ export default function Home() {
             </div>
           </div>
           
-          <div className="lg:col-span-7 bg-brand-white border border-brand-light-gray/60 rounded-3xl p-8 md:p-12 space-y-6 shadow-sm">
+          <div className="lg:col-span-7 premium-panel rounded-[32px] p-8 md:p-12 space-y-6">
             <div className="grid grid-cols-1 gap-5">
               {whyPoints.map((point, index) => (
                 <div key={index} className="flex items-start space-x-3.5 group">
@@ -115,7 +115,7 @@ export default function Home() {
       </section>
 
       {/* 4. Featured Use Cases Section */}
-      <section className="py-24 bg-brand-white">
+      <section className="py-24 bg-brand-white section-wash">
         <div className="max-w-7xl mx-auto px-6 md:px-12 space-y-16">
           <div className="text-center max-w-2xl mx-auto space-y-4">
             <h2 className="text-xs uppercase tracking-widest text-brand-red font-bold">Who We Serve</h2>
@@ -131,7 +131,7 @@ export default function Home() {
             {useCases.map((useCase, index) => (
               <div 
                 key={index}
-                className="bg-brand-soft-white border border-brand-light-gray/40 rounded-2xl p-8 hover:border-brand-red/20 hover:shadow-lg hover:shadow-brand-red/[0.01] transition-all duration-300 space-y-4 flex flex-col justify-between"
+                className="premium-panel rounded-[28px] p-8 hover:border-brand-red/20 hover:shadow-2xl hover:shadow-brand-black/8 transition-all duration-300 space-y-4 flex flex-col justify-between"
               >
                 <div className="space-y-3">
                   <div className="flex items-center gap-2">
@@ -158,7 +158,7 @@ export default function Home() {
       <ProcessSection />
 
       {/* 6. Portfolio Preview Section */}
-      <section className="py-24 bg-brand-white">
+      <section className="py-24 bg-brand-white section-wash">
         <div className="max-w-7xl mx-auto px-6 md:px-12 space-y-16">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
             <div className="space-y-4 max-w-2xl">

@@ -9,6 +9,9 @@ export default function CTASection() {
       {/* Background glow effects */}
       <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-80 h-80 bg-brand-red/10 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-brand-white/5 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute inset-x-0 top-10 h-px bg-white/8 overflow-hidden">
+        <span className="block w-1/4 h-full bg-brand-red animate-shimmer-line" />
+      </div>
 
       <div className="max-w-5xl mx-auto px-6 md:px-12 relative z-10">
         <motion.div 
@@ -16,13 +19,18 @@ export default function CTASection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          className="bg-brand-black border border-brand-white/10 rounded-3xl p-8 md:p-16 text-center space-y-8 relative overflow-hidden"
+          whileHover={{ y: -6 }}
+          className="bg-brand-black border border-brand-white/10 rounded-[32px] p-8 md:p-16 text-center space-y-8 relative overflow-hidden shadow-[0_28px_90px_rgba(0,0,0,0.35)]"
         >
           {/* Internal gradient overlay */}
-          <div className="absolute inset-0 bg-radial-at-t from-brand-red/[0.05] via-transparent to-transparent pointer-events-none" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(229,36,39,0.16),transparent_36%)] pointer-events-none" />
+          <div className="absolute inset-x-10 bottom-0 h-px bg-white/10" />
 
           <div className="max-w-2xl mx-auto space-y-4">
-            <h2 className="text-3xl md:text-5xl font-black tracking-tight leading-tight">
+            <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/6 px-4 py-2 text-[11px] uppercase tracking-[0.28em] text-white/62 premium-dark-panel">
+              Limited monthly client spots
+            </span>
+            <h2 className="pt-3 text-3xl md:text-5xl font-black tracking-tight leading-tight">
               Ready to make your brand look premium online?
             </h2>
             <p className="text-brand-medium-gray text-sm md:text-base leading-relaxed">

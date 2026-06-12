@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
+import { motion } from "framer-motion";
 import { Mail, Phone, Instagram, MapPin } from "lucide-react";
 
 export default function Footer() {
@@ -11,8 +12,17 @@ export default function Footer() {
     <footer className="bg-brand-black text-brand-white border-t border-brand-white/5 pt-16 pb-8 relative overflow-hidden">
       {/* Background glow */}
       <div className="absolute bottom-0 right-0 w-80 h-80 bg-brand-red/5 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute inset-x-0 top-0 h-px bg-white/8 overflow-hidden">
+        <span className="block w-1/4 h-full bg-brand-red animate-shimmer-line" />
+      </div>
 
-      <div className="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-4 gap-10 mb-12 relative z-10">
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+        className="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-4 gap-10 mb-12 relative z-10"
+      >
         {/* Brand Block */}
         <div className="md:col-span-2 space-y-6">
           <Link href="/" className="relative w-40 h-10 flex items-center">
@@ -20,6 +30,7 @@ export default function Footer() {
               src="/logo.png" 
               alt="WillShoot Logo" 
               fill
+              sizes="160px"
               className="object-contain [filter:invert(1)_hue-rotate(180deg)]"
             />
           </Link>
@@ -100,7 +111,7 @@ export default function Footer() {
             </li>
           </ul>
         </div>
-      </div>
+      </motion.div>
 
       {/* Footer Bottom */}
       <div className="max-w-7xl mx-auto px-6 md:px-12 pt-8 border-t border-brand-white/5 flex flex-col md:flex-row justify-between items-center relative z-10 text-brand-medium-gray text-xs space-y-4 md:space-y-0">
