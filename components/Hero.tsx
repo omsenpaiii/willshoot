@@ -1,10 +1,18 @@
 "use client";
 
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import { motion } from "framer-motion";
-import { Play } from "lucide-react";
+import { motion, useReducedMotion } from "framer-motion";
+import { Play, Volume2, VolumeX } from "lucide-react";
 
 export default function Hero() {
+  const sectionRef = useRef<HTMLElement | null>(null);
+  const videoRef = useRef<HTMLVideoElement | null>(null);
+  const shouldReduceMotion = useReducedMotion();
+  const [isMuted, setIsMuted] = useState(true);
+  const [isInView, setIsInView] = useState(true);
+  const [isVideoReady, setIsVideoReady] = useState(false);
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -28,8 +36,108 @@ export default function Hero() {
     }
   };
 
+  useEffect(() => {
+    const section = sectionRef.current;
+
+    if (!section) {
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsInView(entry?.isIntersecting ?? false);
+      },
+      { threshold: 0.35 }
+    );
+
+    observer.observe(section);
+
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    const video = videoRef.current;
+
+    if (!video || shouldReduceMotion) {
+      return;
+    }
+
+    video.muted = isMuted;
+
+    if (!isInView) {
+      video.pause();
+      return;
+    }
+
+    if (!video.paused) {
+      return;
+    }
+
+    const playPromise = video.play();
+
+    if (playPromise) {
+      playPromise.catch(() => {});
+    }
+  }, [isInView, isMuted, shouldReduceMotion]);
+
+  const toggleMuted = async () => {
+    const video = videoRef.current;
+
+    if (!video) {
+      return;
+    }
+
+    const nextMuted = !isMuted;
+    setIsMuted(nextMuted);
+    video.muted = nextMuted;
+
+    if (video.paused) {
+      try {
+        await video.play();
+      } catch {}
+    }
+  };
+
   return (
-    <section className="relative min-h-screen bg-brand-pure-black flex flex-col justify-center items-center text-brand-white px-6 overflow-hidden">
+    <section
+      ref={sectionRef}
+      className="relative min-h-screen bg-brand-pure-black flex flex-col justify-center items-center text-brand-white px-6 overflow-hidden isolate"
+    >
+      {!shouldReduceMotion ? (
+        <div className="absolute inset-0">
+          <div
+            className="absolute inset-0 bg-cover bg-center"
+            style={{ backgroundImage: "url('/hero-poster.jpg')" }}
+            aria-hidden="true"
+          />
+          <video
+            ref={videoRef}
+            className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-700 ${isVideoReady ? "opacity-100" : "opacity-0"}`}
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="metadata"
+            poster="/hero-poster.jpg"
+            aria-hidden="true"
+            onCanPlay={() => setIsVideoReady(true)}
+          >
+            <source src="/hero-bg.webm" type="video/webm" />
+            <source src="/hero-bg.mp4" type="video/mp4" />
+          </video>
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(229,36,39,0.14),transparent_40%),linear-gradient(180deg,rgba(0,0,0,0.45),rgba(0,0,0,0.72))]" />
+        </div>
+      ) : (
+        <>
+          <div
+            className="absolute inset-0 bg-cover bg-center"
+            style={{ backgroundImage: "url('/hero-poster.jpg')" }}
+            aria-hidden="true"
+          />
+          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.45),rgba(0,0,0,0.72))]" />
+        </>
+      )}
+
       {/* Decorative Viewfinder Corners */}
       <div className="absolute top-10 left-10 md:top-20 md:left-20 w-12 h-12 border-t-2 border-l-2 border-brand-red/30 pointer-events-none" />
       <div className="absolute top-10 right-10 md:top-20 md:right-20 w-12 h-12 border-t-2 border-r-2 border-brand-red/30 pointer-events-none" />
@@ -99,12 +207,25 @@ export default function Hero() {
         </motion.div>
       </motion.div>
 
+      {!shouldReduceMotion ? (
+        <button
+          type="button"
+          onClick={toggleMuted}
+          aria-label={isMuted ? "Unmute hero video" : "Mute hero video"}
+          aria-pressed={!isMuted}
+          className="absolute right-6 bottom-6 md:right-10 md:bottom-10 z-20 inline-flex items-center gap-2 rounded-full border border-white/15 bg-black/45 px-4 py-2.5 text-xs font-bold uppercase tracking-[0.24em] text-brand-white backdrop-blur-md transition hover:border-brand-red hover:text-brand-red"
+        >
+          {isMuted ? <VolumeX size={16} /> : <Volume2 size={16} />}
+          <span>{isMuted ? "Sound Off" : "Sound On"}</span>
+        </button>
+      ) : null}
+
       {/* Smooth Scroll Indicator */}
       <motion.div 
         initial={{ opacity: 0 }}
         animate={{ opacity: 0.7 }}
         transition={{ delay: 1.2, duration: 0.8 }}
-        className="absolute bottom-10 flex flex-col items-center gap-2 cursor-pointer z-10"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 cursor-pointer z-10"
         onClick={() => window.scrollTo({ top: window.innerHeight, behavior: "smooth" })}
       >
         <span className="text-xs uppercase tracking-widest text-brand-medium-gray">Scroll Down</span>
