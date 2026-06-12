@@ -12,6 +12,9 @@ export default function Hero() {
   const [isMuted, setIsMuted] = useState(true);
   const [isInView, setIsInView] = useState(true);
   const [isVideoReady, setIsVideoReady] = useState(false);
+  const [hasPlaybackStarted, setHasPlaybackStarted] = useState(false);
+  const [autoUnmuteAttempted, setAutoUnmuteAttempted] = useState(false);
+  const [userHasInteracted, setUserHasInteracted] = useState(false);
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -45,7 +48,13 @@ export default function Hero() {
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        setIsInView(entry?.isIntersecting ?? false);
+        const nextIsInView = entry?.isIntersecting ?? false;
+        setIsInView(nextIsInView);
+
+        if (!nextIsInView && !userHasInteracted) {
+          setHasPlaybackStarted(false);
+          setAutoUnmuteAttempted(false);
+        }
       },
       { threshold: 0.35 }
     );
@@ -53,7 +62,7 @@ export default function Hero() {
     observer.observe(section);
 
     return () => observer.disconnect();
-  }, []);
+  }, [userHasInteracted]);
 
   useEffect(() => {
     const video = videoRef.current;
@@ -80,6 +89,62 @@ export default function Hero() {
     }
   }, [isInView, isMuted, shouldReduceMotion]);
 
+  useEffect(() => {
+    if (
+      shouldReduceMotion ||
+      !isInView ||
+      !isVideoReady ||
+      !hasPlaybackStarted ||
+      !isMuted ||
+      autoUnmuteAttempted ||
+      userHasInteracted
+    ) {
+      return;
+    }
+
+    const timeoutId = window.setTimeout(async () => {
+      const video = videoRef.current;
+
+      if (!video || userHasInteracted || !isInView) {
+        return;
+      }
+
+      setAutoUnmuteAttempted(true);
+      video.muted = false;
+      setIsMuted(false);
+
+      try {
+        await video.play();
+        await new Promise((resolve) => window.setTimeout(resolve, 150));
+
+        if (video.paused) {
+          throw new Error("Auto-unmute was blocked");
+        }
+
+        setIsMuted(video.muted);
+      } catch {
+        video.muted = true;
+        setIsMuted(true);
+
+        if (video.paused) {
+          try {
+            await video.play();
+          } catch {}
+        }
+      }
+    }, 5000);
+
+    return () => window.clearTimeout(timeoutId);
+  }, [
+    autoUnmuteAttempted,
+    hasPlaybackStarted,
+    isInView,
+    isMuted,
+    isVideoReady,
+    shouldReduceMotion,
+    userHasInteracted
+  ]);
+
   const toggleMuted = async () => {
     const video = videoRef.current;
 
@@ -87,14 +152,25 @@ export default function Hero() {
       return;
     }
 
+    setUserHasInteracted(true);
     const nextMuted = !isMuted;
     setIsMuted(nextMuted);
     video.muted = nextMuted;
 
-    if (video.paused) {
+    if (video.paused || !nextMuted) {
       try {
         await video.play();
       } catch {}
+    }
+
+    if (!nextMuted) {
+      await new Promise((resolve) => window.setTimeout(resolve, 150));
+
+      if (video.paused) {
+        try {
+          await video.play();
+        } catch {}
+      }
     }
   };
 
@@ -121,6 +197,8 @@ export default function Hero() {
             poster="/hero-poster.jpg"
             aria-hidden="true"
             onCanPlay={() => setIsVideoReady(true)}
+            onPlaying={() => setHasPlaybackStarted(true)}
+            onPause={() => setHasPlaybackStarted(false)}
           >
             <source src="/hero-bg.webm" type="video/webm" />
             <source src="/hero-bg.mp4" type="video/mp4" />
