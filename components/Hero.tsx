@@ -247,13 +247,21 @@ export default function Hero() {
           variants={itemVariants}
           className="text-5xl md:text-8xl font-black tracking-tight leading-[1.05]"
         >
-          We Sho<span className="inline-block relative">
-            <span className="text-brand-red">o</span>
-            {/* Small red play icon inside the "o" */}
-            <span className="absolute inset-0 flex items-center justify-center">
-              <span className="w-1.5 h-1.5 md:w-2.5 md:h-2.5 bg-brand-white rotate-90 clip-triangle translate-y-[2px]" style={{ clipPath: "polygon(50% 0%, 0% 100%, 100% 100%)" }} />
-            </span>
-          </span>t.<br />
+          We Sh<span className="inline-block">
+            <span className="sr-only">o</span>
+            <svg
+              aria-hidden="true"
+              viewBox="0 0 100 100"
+              className="inline-block w-[0.62em] h-[0.58em] align-[-0.01em] text-brand-red"
+            >
+              <path
+                fill="currentColor"
+                fillRule="evenodd"
+                d="M50 1a49 49 0 1 1 0 98a49 49 0 1 1 0-98ZM50 26a14 24 0 1 0 0 48a14 24 0 1 0 0-48Z"
+              />
+              <path fill="white" d="M44 41L62 50L44 59Z" />
+            </svg>
+          </span>ot.<br />
           You Grow.
         </motion.h1>
 
