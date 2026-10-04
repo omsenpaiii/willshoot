@@ -1,12 +1,9 @@
-import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import { Mail, Phone, Instagram, MessageSquare, MapPin } from "lucide-react";
 import MotionWrapper from "@/components/MotionWrapper";
 import ContactForm from "@/components/ContactForm";
 
-export const metadata: Metadata = {
-  title: "Contact | WillShoot",
-  description: "Contact WillShoot to book a video shoot, photography session, social media management plan, or Meta Ads campaign.",
-};
+export const metadata = pageMetadata('Book a Melbourne Business Shoot | Contact WillShoot', 'Contact WillShoot in Melbourne for a business video shoot, photography session, property walkthrough, or social media content. Request a custom quote.', '/contact');
 
 export default function ContactPage() {
   return (
@@ -18,10 +15,10 @@ export default function ContactPage() {
         <div className="absolute top-20 right-10 w-8 h-8 border-t border-r border-brand-red/20 pointer-events-none" />
 
         <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10 space-y-6 text-center max-w-3xl">
-          <h1 className="text-xs uppercase tracking-widest text-brand-red font-bold">Start Your Project</h1>
-          <h2 className="text-4xl md:text-6xl font-black tracking-tight leading-tight">
+          <p className="text-xs uppercase tracking-widest text-brand-red font-bold">Start Your Project</p>
+          <h1 className="text-4xl md:text-6xl font-black tracking-tight leading-tight">
             Let&apos;s Create Content That Converts
-          </h2>
+          </h1>
           <p className="text-brand-medium-gray text-base md:text-lg leading-relaxed font-medium">
             Ready to book a shoot or discuss a marketing campaign? Fill out the brief below and we will get back to you with a custom strategy within 24 hours.
           </p>
@@ -97,8 +94,8 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <p className="text-xs uppercase tracking-wider text-brand-medium-gray font-bold">Follow Us</p>
-                    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-sm font-semibold tracking-wide text-brand-black hover:text-brand-red transition-colors duration-200 mt-0.5 block">
-                      @willshoot
+                    <a href="https://www.instagram.com/willshootau/" target="_blank" rel="noopener noreferrer" className="text-sm font-semibold tracking-wide text-brand-black hover:text-brand-red transition-colors duration-200 mt-0.5 block">
+                      @willshootau
                     </a>
                   </div>
                 </div>

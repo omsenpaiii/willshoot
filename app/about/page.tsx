@@ -1,12 +1,9 @@
-import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import Link from "next/link";
 import { Compass, Eye, ShieldCheck, Zap, Sparkles, Scale, RefreshCw } from "lucide-react";
 import MotionWrapper from "@/components/MotionWrapper";
 
-export const metadata: Metadata = {
-  title: "About | WillShoot",
-  description: "Learn about WillShoot, a modern creative agency helping businesses grow online through premium video, photography, and digital marketing.",
-};
+export const metadata = pageMetadata('About WillShoot | Melbourne Video & Photography Team', 'Meet WillShoot, a Melbourne creative agency producing business videos, property photography, brand content, and social media campaigns.', '/about');
 
 const VALUES = [
   {
@@ -51,10 +48,10 @@ export default function AboutPage() {
         <div className="absolute top-20 right-10 w-8 h-8 border-t border-r border-brand-red/20 pointer-events-none" />
 
         <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10 space-y-6 text-center max-w-3xl">
-          <h1 className="text-xs uppercase tracking-widest text-brand-red font-bold">Our Story</h1>
-          <h2 className="text-4xl md:text-6xl font-black tracking-tight leading-tight">
+          <p className="text-xs uppercase tracking-widest text-brand-red font-bold">Our Story</p>
+          <h1 className="text-4xl md:text-6xl font-black tracking-tight leading-tight">
             We Help Brands Look Better & Sell Faster
-          </h2>
+          </h1>
           <p className="text-brand-medium-gray text-base md:text-lg leading-relaxed font-medium">
             WillShoot was built to bridge the gap between high-end cinematic visuals and practical, results-driven digital marketing.
           </p>

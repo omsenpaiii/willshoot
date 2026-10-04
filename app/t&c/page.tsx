@@ -1,10 +1,7 @@
-import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import Link from "next/link";
 
-export const metadata: Metadata = {
-  title: "Terms & Conditions | WillShoot",
-  description: "Terms for using WillShoot's website and creative services, including bookings, payments, cancellations, and refunds.",
-};
+export const metadata = pageMetadata('Terms & Conditions | WillShoot', 'Terms for using WillShoot’s website and creative services, including bookings, payments, cancellations, and refunds.', '/t&c');
 
 const terms = [
   {

@@ -1,12 +1,9 @@
-import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import Link from "next/link";
 import MotionWrapper from "@/components/MotionWrapper";
-import PortfolioGrid from "@/components/PortfolioGrid";
+import InstagramPortfolio from "@/components/InstagramPortfolio";
 
-export const metadata: Metadata = {
-  title: "Work | WillShoot",
-  description: "Explore WillShoot's portfolio of recent videography, photography, reels, and Meta Ads marketing campaigns.",
-};
+export const metadata = pageMetadata('Melbourne Property Videos & Recent Work | WillShoot', 'Watch real property walkthroughs and recent Melbourne video shoots from WillShoot, shared directly from our Instagram portfolio.', '/work');
 
 export default function WorkPage() {
   return (
@@ -18,12 +15,12 @@ export default function WorkPage() {
         <div className="absolute top-20 right-10 w-8 h-8 border-t border-r border-brand-red/20 pointer-events-none" />
 
         <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10 space-y-6 text-center max-w-3xl">
-          <h1 className="text-xs uppercase tracking-widest text-brand-red font-bold">Our Portfolio</h1>
-          <h2 className="text-4xl md:text-6xl font-black tracking-tight leading-tight">
-            Recent Work & Campaigns
-          </h2>
+          <p className="text-xs uppercase tracking-widest text-brand-red font-bold">Our Portfolio</p>
+          <h1 className="text-4xl md:text-6xl font-black tracking-tight leading-tight">
+            Melbourne Shoots, Real Stories
+          </h1>
           <p className="text-brand-medium-gray text-base md:text-lg leading-relaxed font-medium">
-            Explore our shoots and campaigns across real estate, academies, cafes, and digital lead acquisition projects.
+            Watch recent property shoots from Melbourne, shared directly from our Instagram portfolio. Real homes, real projects, captured by WillShoot.
           </p>
         </div>
       </section>
@@ -31,7 +28,7 @@ export default function WorkPage() {
       {/* Portfolio Gallery Section */}
       <section className="py-24 bg-brand-white">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
-          <PortfolioGrid showFilters={true} />
+          <InstagramPortfolio />
         </div>
       </section>
 

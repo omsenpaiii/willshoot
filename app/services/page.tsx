@@ -1,14 +1,11 @@
-import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import type { ComponentType } from "react";
 import Link from "next/link";
 import { Check, Video, Camera, Instagram, Megaphone } from "lucide-react";
 import MotionWrapper from "@/components/MotionWrapper";
 import { SERVICES } from "@/constants/services";
 
-export const metadata: Metadata = {
-  title: "Services | WillShoot",
-  description: "Explore WillShoot services including videography, photography, social media management, and Meta Ads marketing for growing brands and businesses.",
-};
+export const metadata = pageMetadata('Video Production & Business Photography Melbourne | WillShoot', 'Book Melbourne videography, business photography, property shoots, Instagram reels, social media management, and Meta Ads creative with WillShoot.', '/services');
 
 const iconMap: Record<string, ComponentType<{ size?: number; className?: string }>> = {
   Video: Video,
@@ -78,13 +75,21 @@ export default function ServicesPage() {
         <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-brand-red/10 rounded-full blur-[120px] pointer-events-none" />
 
         <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10 space-y-6 text-center max-w-3xl">
-          <h1 className="text-xs uppercase tracking-widest text-brand-red font-bold">What We Offer</h1>
-          <h2 className="text-4xl md:text-6xl font-black tracking-tight leading-tight">
-            Services That Help Your Brand Grow Online
-          </h2>
+          <p className="text-xs uppercase tracking-widest text-brand-red font-bold">What We Offer</p>
+          <h1 className="text-4xl md:text-6xl font-black tracking-tight leading-tight">
+            Video & Photography Services in Melbourne
+          </h1>
           <p className="text-brand-medium-gray text-base md:text-lg leading-relaxed font-medium">
-            We provide cinematic media production, structured social media operations, and targeted advertising strategies built to acquire attention and close customers.
+            Based in Melbourne, we create business videos, professional photography, property walkthroughs, and social media content for local brands. We also manage social channels and targeted advertising campaigns.
           </p>
+        </div>
+      </section>
+
+      <section className="py-10 bg-brand-soft-white border-b border-brand-light-gray">
+        <div className="max-w-7xl mx-auto px-6 md:px-12 space-y-3">
+          <h2 className="text-xl font-bold">Planning a business shoot in Melbourne?</h2>
+          <p className="text-brand-dark-gray leading-relaxed">Explore photography, brand videos, and reels for your workplace, team, products, and social channels.</p>
+          <Link href="/business-photography-melbourne" className="inline-block font-semibold text-brand-red underline underline-offset-4">Business photography &amp; video shoots in Melbourne</Link>
         </div>
       </section>
 
