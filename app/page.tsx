@@ -3,7 +3,7 @@ import { ArrowRight, CheckCircle2 } from "lucide-react";
 import Hero from "@/components/Hero";
 import ServiceCard from "@/components/ServiceCard";
 import ProcessSection from "@/components/ProcessSection";
-import PortfolioGrid from "@/components/PortfolioGrid";
+import FeaturedReels from "@/components/FeaturedReels";
 import CTASection from "@/components/CTASection";
 import MotionWrapper from "@/components/MotionWrapper";
 import { SERVICES } from "@/constants/services";
@@ -176,7 +176,7 @@ export default function Home() {
             </Link>
           </div>
 
-          <PortfolioGrid limit={3} showFilters={false} />
+          <FeaturedReels />
         </div>
       </section>
 

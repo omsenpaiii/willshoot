@@ -1,16 +1,13 @@
+import { INSTAGRAM_REELS } from "@/constants/instagram";
 import { INSTAGRAM_URL } from "@/lib/seo";
 
-const reels = [
-  { id: "Da2dpPMjjwW", title: "4 Glenferrie Avenue, Mickleham", description: "A property walkthrough showcasing the space and features of a Melbourne home." },
-  { id: "Daab9RnGUwy", title: "6 Bishop Street, Mickleham", description: "Real estate video highlighting a thoughtfully designed home in Melbourne's north." },
-  { id: "DaATbcAAI5e", title: "23 Flaxseed Drive, Mickleham", description: "A property reel capturing the lifestyle and character of a Mickleham home." },
-];
+
 
 export default function InstagramPortfolio() {
   return (
     <div className="space-y-10">
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 items-start">
-        {reels.map((reel) => (
+        {INSTAGRAM_REELS.map((reel) => (
           <article key={reel.id} className="rounded-2xl border border-brand-light-gray bg-brand-white overflow-hidden">
             <iframe
               src={`https://www.instagram.com/p/${reel.id}/embed/`}
