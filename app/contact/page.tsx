@@ -20,7 +20,7 @@ export default function ContactPage() {
         <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10 space-y-6 text-center max-w-3xl">
           <h1 className="text-xs uppercase tracking-widest text-brand-red font-bold">Start Your Project</h1>
           <h2 className="text-4xl md:text-6xl font-black tracking-tight leading-tight">
-            Let's Create Content That Converts
+            Let&apos;s Create Content That Converts
           </h2>
           <p className="text-brand-medium-gray text-base md:text-lg leading-relaxed font-medium">
             Ready to book a shoot or discuss a marketing campaign? Fill out the brief below and we will get back to you with a custom strategy within 24 hours.
@@ -43,7 +43,7 @@ export default function ContactPage() {
               <span className="w-1.5 h-6 bg-brand-red rounded-full block" />
               <h3 className="text-2xl font-bold tracking-tight text-brand-black">We Shoot. You Grow.</h3>
               <p className="text-brand-medium-gray text-sm md:text-base leading-relaxed">
-                Tell us what you want to shoot. We'll help you turn it into content that works. Whether you need an academy tour, property reel, cafe promotion, or a high-converting ad funnel, we are ready.
+                Tell us what you want to shoot. We&apos;ll help you turn it into content that works. Whether you need an academy tour, property reel, cafe promotion, or a high-converting ad funnel, we are ready.
               </p>
             </div>
 

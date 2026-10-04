@@ -15,7 +15,7 @@ interface ServiceCardProps {
 
 export default function ServiceCard({ id, title, shortDescription, icon, index }: ServiceCardProps) {
   // Dynamically resolve icon from lucide-react
-  const IconComponent = (Icons as any)[icon] || Icons.HelpCircle;
+  const IconComponent = (Icons as unknown as Record<string, React.ComponentType<{ size?: number; className?: string }>>)[icon] || Icons.HelpCircle;
 
   const cardVariants = {
     hidden: { opacity: 0, y: 30 },

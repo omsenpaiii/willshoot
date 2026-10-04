@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
+import type { ComponentType } from "react";
 import Link from "next/link";
-import { Check, ArrowRight, Video, Camera, Instagram, Megaphone } from "lucide-react";
+import { Check, Video, Camera, Instagram, Megaphone } from "lucide-react";
 import MotionWrapper from "@/components/MotionWrapper";
 import { SERVICES } from "@/constants/services";
 
@@ -9,7 +10,7 @@ export const metadata: Metadata = {
   description: "Explore WillShoot services including videography, photography, social media management, and Meta Ads marketing for growing brands and businesses.",
 };
 
-const iconMap: Record<string, any> = {
+const iconMap: Record<string, ComponentType<{ size?: number; className?: string }>> = {
   Video: Video,
   Camera: Camera,
   Instagram: Instagram,

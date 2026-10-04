@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Check, Compass, Eye, ShieldCheck, Zap, Sparkles, Scale, RefreshCw } from "lucide-react";
+import { Compass, Eye, ShieldCheck, Zap, Sparkles, Scale, RefreshCw } from "lucide-react";
 import MotionWrapper from "@/components/MotionWrapper";
 
 export const metadata: Metadata = {
@@ -177,7 +177,7 @@ export default function AboutPage() {
         <div className="absolute inset-0 bg-radial-at-t from-brand-red/10 via-transparent to-transparent pointer-events-none" />
         <div className="max-w-4xl mx-auto px-6 space-y-8 relative z-10">
           <h2 className="text-3xl md:text-5xl font-black tracking-tight leading-tight">
-            Let's work as a creative growth partner.
+            Let&apos;s work as a creative growth partner.
           </h2>
           <p className="text-brand-medium-gray text-sm md:text-base max-w-xl mx-auto font-medium">
             We help local brands look better, grow faster, and reach the right audience online.

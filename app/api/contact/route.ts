@@ -31,7 +31,14 @@ async function sendNotificationEmail({
 }) {
   const resendApiKey = process.env.RESEND_API_KEY;
 
-  if (!resendApiKey) {
+  if (!resendApiKey || resendApiKey === "your_resend_api_key_here") {
+    if (process.env.NODE_ENV === "development") {
+      console.log("------------------------------------------");
+      console.log("DEVELOPMENT MODE: RESEND_API_KEY is missing or using placeholder.");
+      console.log("Skipping Resend email API call, but form submission is successful!");
+      console.log("------------------------------------------");
+      return;
+    }
     throw new Error("Missing RESEND_API_KEY environment variable.");
   }
 

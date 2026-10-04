@@ -4,7 +4,7 @@ import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { Play, X, Loader2, Pause, Volume2, Volume1, VolumeX, Maximize } from "lucide-react";
+import { Play, X, Loader2, Pause, Volume2, Volume1, VolumeX, Maximize, Minimize } from "lucide-react";
 import { PROJECTS, CATEGORIES, Project } from "@/constants/portfolio";
 
 interface PortfolioGridProps {
@@ -279,7 +279,7 @@ function VideoPlayer({ videoUrl, posterUrl }: VideoPlayerProps) {
             className="hover:text-brand-red transition-colors duration-200 cursor-pointer outline-none"
             aria-label="Toggle Fullscreen"
           >
-            <Maximize size={16} />
+            {isFullscreen ? <Minimize size={16} /> : <Maximize size={16} />}
           </button>
         </div>
       </div>

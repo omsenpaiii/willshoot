@@ -120,7 +120,7 @@ export default function Footer() {
         </div>
         <div className="flex space-x-6">
           <span className="hover:text-brand-white transition-colors duration-200 cursor-pointer">Privacy Policy</span>
-          <span className="hover:text-brand-white transition-colors duration-200 cursor-pointer">Terms of Service</span>
+          <Link href="/t&c" className="hover:text-brand-white transition-colors duration-200">Terms &amp; Conditions</Link>
         </div>
       </div>
     </footer>

@@ -42,7 +42,7 @@ export default function WorkPage() {
             Want to see your brand featured here?
           </h2>
           <p className="text-brand-medium-gray text-sm md:text-base font-medium">
-            Let's discuss how we can plan, capture, and promote cinematic visual campaigns for your business.
+            Let&apos;s discuss how we can plan, capture, and promote cinematic visual campaigns for your business.
           </p>
           <div className="pt-2">
             <Link 

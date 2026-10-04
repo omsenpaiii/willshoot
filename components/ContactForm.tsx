@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { Send, CheckCircle2, MessageSquare, AlertCircle, Loader2 } from "lucide-react";
 
 const BUDGET_RANGES = [
@@ -97,7 +97,7 @@ export default function ContactForm() {
         <div className="space-y-3">
           <h3 className="text-2xl md:text-3xl font-black tracking-tight text-brand-black">Project Request Received!</h3>
           <p className="text-brand-medium-gray text-sm md:text-base leading-relaxed max-w-md mx-auto">
-            Thank you. We've received your request and will get back to you shortly.
+            Thank you. We&apos;ve received your request and will get back to you shortly.
           </p>
         </div>
 

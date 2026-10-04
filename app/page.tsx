@@ -87,7 +87,7 @@ export default function Home() {
               Why Brands Choose WillShoot
             </h3>
             <p className="text-brand-medium-gray text-sm md:text-base leading-relaxed">
-              We don't just point a camera and press record. We combine cinematic production with modern marketing strategies to build content that converts views into growth.
+              We don&apos;t just point a camera and press record. We combine cinematic production with modern marketing strategies to build content that converts views into growth.
             </p>
             <div className="pt-4">
               <Link 
